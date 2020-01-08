@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwarka</title>
+</head>
+<body>
+
+<h1>Logged as: <span th:text="${email}"></span></h1>
+
+<form action="#" th:action="@{/full-search}" th:object="${brand}" method="post">
+<label>
+    Marka:
+    <input type="submit" th:value="${brand.name}" th:each="brand:${brands}">
+    <select th:field="*{name}">>
+        <option th:value="${brand.name}" th:each="brand:${brands}" th:text="${brand.name}"></option>
+    </select>
+</label>
+</form>
+</body>
+</html>

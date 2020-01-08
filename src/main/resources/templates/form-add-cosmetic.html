@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj kosmetyk</title>
+</head>
+<body>
+<form action="#" th:action="@{/add-cosmetic}" th:object="${form}" method="post">
+<!--    TO DO: NA PODSTAWIE ZALOGOWANIA WIADOMO, KTÓRY TO UŻYTKOWNIK-->
+    <label>
+        Twój adres email:
+        <br/>
+        <input type="text" th:field="*{userAddProductId}">
+    </label>
+    <br/>
+    <label>
+<!--        TO DO: DODAWANIE DO BAZY !!!!!!!!!!!!!!-->
+        Marka kosmetyku   np.Nivea
+        <br/>
+        <input list="brand">
+        <datalist id="brand">
+            <option th:value="${brand.name}" th:each="brand:${brands}">
+        </datalist>
+<!--    th:field="*{brand}">-->
+    </label>
+    <br/>
+    <label>
+        Nazwa kosmetyku   -proszę podaj jak najwięcej szczegółów-
+        <br/>
+        <textarea th:field="*{name}" rows="3" cols="50"></textarea>
+    </label>
+    <br/>
+    <label>
+        Rodzaj kosmetyku   np.szampon
+        <br/>
+        <input list="type">
+        <datalist id="type">
+            <option th:value="${type.name}" th:each="type:${types}">
+        </datalist>
+<!--    th:field="*{type}">-->
+    </label>
+    <br/>
+    <label>
+        Typ kosmetyku   np.emolientowy
+        <br/>
+        <input list="feature">
+        <datalist id="feature" >
+            <option th:value="${feature.name}" th:each="feature:${features}">
+        </datalist>
+<!--    th:field="*{feature}">-->
+    </label>
+    <br/>
+    <label>
+        Czy posiada silikony?
+        <br/>
+        <input type="radio" th:field="*{silicon}" value="yes"> Tak
+        <br/>
+        <input type="radio" th:field="*{silicon}" value="no"> Nie
+        <br>
+        <input type="radio" th:field="*{silicon}" value="dontKnow"> Nie wiem
+    </label>
+    <br/>
+    <label>
+        Czy posiada konserwanty?
+        <br/>
+        <input type="radio" th:field="*{preservative}" value="yes"> Tak
+        <br/>
+        <input type="radio" th:field="*{preservative}" value="no"> Nie
+        <br>
+        <input type="radio" th:field="*{preservative}" value="dontKnow"> Nie wiem
+    </label>
+    <br/>
+    <label>
+        Dodatkowe informacje, które możesz podać o wskaznym kosmetyku,
+        np. jakie silikony zawiera, czy zawiera pantenol
+        <br/>
+        <textarea th:field="*{additionalInfo}" rows="10" cols="30"></textarea>
+    </label>
+    <br/>
+    <input type="submit" value="Dodaj">
+
+</form>
+</body>
+</html>
