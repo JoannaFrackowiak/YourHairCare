@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Moje kosmetyki</title>
+
+    <div th:replace="fragments/layout :: core"></div>
+
+</head>
+<body>
+
+<div th:replace="fragments/layout :: heading"></div>
+
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+                    <h1>Witaj <span th:text="${login}"></span></h1>
+                    <br/>
+                    <table class="table">
+                        <tr>
+                            <th>Lp.</th>
+                            <th>Marka</th>
+                            <th>Nazwa</th>
+                            <th>Rodzaj</th>
+                            <th>Cecha</th>
+                            <th>Konserwanty?</th>
+                            <th>Silikony</th>
+                            <th>Usun</th>
+                        </tr>
+
+                        <tr th:each="cosmetic, counter: ${cosmetics}">
+                            <td th:text="${counter.count}"></td>
+                            <td th:text="${cosmetic.brandName}"></td>
+                            <td th:text="${cosmetic.name}"></td>
+                            <td th:text="${cosmetic.typeName}"></td>
+                            <td th:text="${cosmetic.featureName}"></td>
+                            <td th:switch="${cosmetic.preservative}">
+                                <span th:case="false">Nie</span>
+                                <span th:case="true">Tak</span>
+                                <span th:case="*">Brak info.</span>
+                            </td>
+                            <td th:text="${cosmetic.siliconsNamesInCosmetic}"></td>
+                            <td><a th:href="'/deleteCosmeticUser?id=' + ${cosmetic.id}">Usuń trwale</a></td>
+<!--                            USUŃ I DODAJ DO LISTY ZAKUPÓW-->
+<!--                            DODAJ DO LISTY ZAKUPÓW-->
+                        </tr>
+                    </table>
+
+                    <span>Dodaj kosmetyk do swojej listy:</span>
+<!--                    <form th:action="@{/add-cosmetic-to-list}">-->
+                        <form th:action="@{/add-user-cosmetic}">
+
+                        <input type="submit" value="Wybierz kosmetyk">
+                    </form>
+                </div>
+            </div>
+<!--            <div class="col-lg-5 my-auto">-->
+<!--                <div class="device-container">-->
+<!--                   -->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</header>
+
+<div th:replace="fragments/layout :: footer"></div>
+
+</body>
+</html>

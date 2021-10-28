@@ -22,5 +22,11 @@ public class ControllerConfig {
     @ResponseStatus(HttpStatus.CONFLICT)
     public void handleAlreadyExist() {
     }
+//
+//    @ExceptionHandler(ConstraintViolationException.class)
+//    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Data not valid")
+//    public void conflict() {
+//    }
+
 
 }

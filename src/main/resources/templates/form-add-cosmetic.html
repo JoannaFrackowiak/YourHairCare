@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Dodaj kosmetyk</title>
 </head>
 <body>
 <form action="#" th:action="@{/add-cosmetic}" th:object="${form}" method="post">
-<!--    TO DO: NA PODSTAWIE ZALOGOWANIA WIADOMO, KTÓRY TO UŻYTKOWNIK-->
+    *Pola WYMAGANE
+    <br/>
     <label>
         Twój adres email:
         <br/>
-        <input type="text" th:field="*{userAddProductId}">
+
+        <input type="text" th:value="${login}" id="userLoginAddProduct" name="userLoginAddProduct" hidden/>
+
     </label>
     <br/>
     <label>
-<!--        TO DO: DODAWANIE DO BAZY !!!!!!!!!!!!!!-->
-        Marka kosmetyku   np.Nivea
+        <!--        TO DO: add to DB
+                *Marka kosmetyku   np.Nivea
+                <br/>
+                <input type="text" th:field="*{brand}" list="brands" required/>
+                <datalist id="brands">
+                    <option th:each="brand:${brands}" th:value="${brand.name}" ></option>
+                </datalist>
+                   th:field="*{brand}">-->
+    </label>
+    <br/>
+    <label>
+        *Nazwa kosmetyku -proszę podaj jak najwięcej szczegółów-
         <br/>
-        <input list="brand">
-        <datalist id="brand">
-            <option th:value="${brand.name}" th:each="brand:${brands}">
+        <textarea th:field="*{name}" rows="3" cols="50" required></textarea>
+    </label>
+    <br/>
+    <label>
+        Rodzaj kosmetyku np.szampon
+        <br/>
+        <input type="text" th:field="*{type}" list="types">
+        <datalist id="types">
+            <option th:value="${type.name}" th:each="type:${types}"></option>
         </datalist>
-<!--    th:field="*{brand}">-->
+        <!--    th:field="*{type}">-->
     </label>
     <br/>
     <label>
-        Nazwa kosmetyku   -proszę podaj jak najwięcej szczegółów-
+        Typ kosmetyku np.emolientowy
         <br/>
-        <textarea th:field="*{name}" rows="3" cols="50"></textarea>
-    </label>
-    <br/>
-    <label>
-        Rodzaj kosmetyku   np.szampon
-        <br/>
-        <input list="type">
-        <datalist id="type">
-            <option th:value="${type.name}" th:each="type:${types}">
+        <input type="text" th:field="*{feature}" list="features">
+        <datalist id="features">
+            <option th:value="${feature.name}" th:each="feature:${features}"></option>
         </datalist>
-<!--    th:field="*{type}">-->
+        <!--    th:field="*{feature}">-->
     </label>
     <br/>
     <label>
-        Typ kosmetyku   np.emolientowy
-        <br/>
-        <input list="feature">
-        <datalist id="feature" >
-            <option th:value="${feature.name}" th:each="feature:${features}">
-        </datalist>
-<!--    th:field="*{feature}">-->
-    </label>
-    <br/>
-    <label>
-        Czy posiada silikony?
+        *Czy posiada silikony?
         <br/>
         <input type="radio" th:field="*{silicon}" value="yes"> Tak
         <br/>
         <input type="radio" th:field="*{silicon}" value="no"> Nie
         <br>
-        <input type="radio" th:field="*{silicon}" value="dontKnow"> Nie wiem
+        <input type="radio" th:field="*{silicon}" value="dontKnow" required> Nie wiem
     </label>
     <br/>
     <label>
-        Czy posiada konserwanty?
+        *Czy posiada konserwanty?
         <br/>
         <input type="radio" th:field="*{preservative}" value="yes"> Tak
         <br/>
         <input type="radio" th:field="*{preservative}" value="no"> Nie
         <br>
-        <input type="radio" th:field="*{preservative}" value="dontKnow"> Nie wiem
+        <input type="radio" th:field="*{preservative}" value="dontKnow" required> Nie wiem
     </label>
     <br/>
     <label>
@@ -76,6 +79,10 @@
         <br/>
         <textarea th:field="*{additionalInfo}" rows="10" cols="30"></textarea>
     </label>
+
+    <!--    CZY PO DODANIU KOSMETYKU DO BAZY DODANYCH DODAĆ GO DO LISTY TWOICH KOSMETYKÓW LUB DO LISTY ZAKUPÓW?
+            TAK, DO LISTY MOICH KOSMETYKÓW | TAK, DO LISTY ZAKUPÓW | NIE, DZIĘKUJĘ-->
+
     <br/>
     <input type="submit" value="Dodaj">
 

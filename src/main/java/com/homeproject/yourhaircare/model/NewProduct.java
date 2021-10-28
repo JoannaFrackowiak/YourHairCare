@@ -27,6 +27,7 @@ public class NewProduct {
     private Boolean silicon;
     private Boolean preservative;
     private String additionalInfo;
+    private Boolean addedToDB;
     private OffsetDateTime addedAt;
     private OffsetDateTime updatedAt;
 }

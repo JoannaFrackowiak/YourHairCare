@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Wyszukiwarka</title>
+
+    <div th:replace="fragments/layout :: core"></div>
+
+</head>
+<body>
+
+<div th:replace="fragments/layout :: heading"></div>
+
+<header class="masthead">
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+                <h1>Witaj <span th:text="${email}"></span></h1>
+
+                <form th:action="@{/search-for-user}">
+                    <label>
+                        Marka:
+                        <select th:name="brandName">
+                            <option th:value="${brand.name}" th:each="brand:${brands}" th:text="${brand.name}"></option>
+                        </select>
+                    </label>
+                    <input type="submit" value="Wybierz">
+                </form>
+
+            </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+            <div class="device-container">
+
+            </div>
+        </div>
+    </div>
+</div>
+</header>
+
+</body>
+</html>

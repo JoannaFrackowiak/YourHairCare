@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CreateUpdateNewProductDto {
 
-    private Long userAddProductId;
+    private String userLoginAddProduct;
     private String brand;
     private String type;
     private String feature;

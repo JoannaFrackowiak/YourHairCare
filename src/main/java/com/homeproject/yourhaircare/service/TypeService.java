@@ -1,7 +1,8 @@
 package com.homeproject.yourhaircare.service;
 
-import com.homeproject.yourhaircare.repository.FeatureRepository;
+import com.homeproject.yourhaircare.model.Type;
 import com.homeproject.yourhaircare.repository.TypeRepository;
+import com.homeproject.yourhaircare.service.dto.CosmeticDto;
 import com.homeproject.yourhaircare.service.dto.TypeDto;
 import com.homeproject.yourhaircare.service.mapper.TypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,20 @@ public class TypeService {
         return typeRepository.findAll()
                 .stream()
                 .map(brand -> typeMapper.toDto(brand))
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public TypeDto getOneType(String name) {
+        Type type = typeRepository.findTypeByName(name);
+        return typeMapper.toDto(type);
+    }
+
+    public List<TypeDto> getAllTypesForUser(List<CosmeticDto> cosmeticDtoList) {
+        return cosmeticDtoList.stream()
+                .map(cosmeticDto -> cosmeticDto.getTypeId())
+                .map(id -> typeRepository.findTypeById(id))
+                .map(type -> typeMapper.toDto(type))
                 .collect(Collectors.toList());
     }
 }

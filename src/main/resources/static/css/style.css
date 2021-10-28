@@ -1,0 +1,114 @@
+#mainNav {
+    /*górny pasek przy zmniejszeniu okna, gdy dostępna funkcja menu*/
+    border-color: rgba(34, 34, 34, 0.05);
+    background-color: whitesmoke;
+}
+
+#mainNav .navbar-brand {
+    /*nazwa: Dziennik Włos...*/
+    color: #123997;
+}
+
+
+#mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
+    /*podświetlenie nazwy po najechaniu myszki, z funkcją menu*/
+    color: #09bcdc;
+}
+
+#mainNav .navbar-toggler {
+    /*menu*/
+    color: #222222;
+}
+
+/*#mainNav .navbar-nav > li > a.active {*/
+/*przy scrolowaniu podświetlenie nazwy podstrony*/
+/*}*/
+
+/*#mainNav .navbar-nav > li > a.active:hover {*/
+/*po najechaniu myszką na nazwę podstrony, na której się znajduje aktualnie strona, podświetlenie jej*/
+/*}*/
+
+/*#mainNav .navbar-nav > li > a,*/
+/*#mainNav .navbar-nav > li > a:focus {*/
+/*    w menu podświetlenie pozostałych nazw podstron */
+/*}*/
+
+#mainNav .navbar-nav > li > a:hover,
+#mainNav .navbar-nav > li > a:focus:hover {
+    /*podświetlenie nazwy podtrony w menu*/
+    color: #09bcdc;
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        /*przy normalnej szerokości okna, bez opcji menu*/
+        border-color: whitesmoke;
+        background-color: whitesmoke;
+    }
+
+    /*#mainNav .navbar-brand {*/
+    /*    ?????*/
+    /*}*/
+
+    #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
+        /*podświetlenie nazwy po najechaniu myszki, przy pełnej szerokości okna */
+        color: #09bcdc;
+    }
+    #mainNav .navbar-nav > li > a,
+    #mainNav .navbar-nav > li > a:focus {
+        /*nazwy podstron przy pełnym oknie w pozycji startowej*/
+        color: rgba(0, 0, 0, 0.7);
+    }
+    #mainNav .navbar-nav > li > a:hover,
+    #mainNav .navbar-nav > li > a:focus:hover {
+        /*podświetlenie nazwy podstron przy pełnym oknie w pozycji startowej*/
+        color: #09bcdc;
+    }
+    #mainNav.navbar-shrink {
+        /*górny pasek przy skrolowaniu*/
+        border-color: rgba(34, 34, 34, 0.1);
+        background-color: whitesmoke;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+        /*nazwy podstron przy pełnej szerokości okna*/
+        color: #222222;
+    }
+
+    #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
+    /*?????*/
+    }
+
+    /*#mainNav.navbar-shrink .navbar-nav > li > a,*/
+    /*#mainNav.navbar-shrink .navbar-nav > li > a:focus {*/
+        /*kolor nazw podstron przy scrollowaniu, nieaktynych*/
+    /*}*/
+
+    /*#mainNav.navbar-shrink .navbar-nav > li > a:hover,*/
+    /*#mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {*/
+        /*podświetlanie nazw podstron po najechaniu na nie przy scrollowanu*/
+    /*}*/
+}
+
+header.masthead {
+    position: relative;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 100px;
+    color: white;
+    background: url("../img/bg-pattern.png"), transparent;
+    /*background: url("../img/bg-pattern.png"), linear-gradient(to left, #09bcdc, #123997);*/
+    /*background: url("../img/bg-pattern.png"), linear-gradient(to left, #addcd8, #30d5c8);*/
+    /*background: url("../img/bg-pattern.png"), linear-gradient(to left, #8ceaf4, #1b9ba9);*/
+    background: url("../img/bg-pattern.png"), linear-gradient(to left, #09bcdc, #123997);
+
+
+}
+
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+    /*podświetlenie zarejestrowania/zalogowania*/
+    color: white;
+    border-color: #09bcdc;
+            /*#30d5c8;*/
+    background-color: #09bcdc;
+    /*color: #fdc539;*/
+}

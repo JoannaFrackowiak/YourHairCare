@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwarka</title>
+</head>
+<body>
+
+<h1>Logged as: <span th:text="${email}"></span></h1>
+
+<!--Marka: <span th:text="${selectedBrand}"></span>-->
+<!--<a th:href="'/search-for-user'">Zmien</a>-->
+
+<!--<br/>-->
+<!--Kategoria: <span th:text="${selectedType}"></span>-->
+<!--&lt;!&ndash;<a th:href="'search-for-user?brandName=' + ${selectedBrand}">Zmien</a>&ndash;&gt;-->
+<!--<a th:href="@{/search-for-user(brandName=${selectedBrand})}">Zmien</a>-->
+
+
+<!--<a th:href="'/search-for-user'">Zmien</a>-->
+
+
+
+<!--&lt;!&ndash;Typ: <span th:text="${selectedType}"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;<a th:href="'/search-for-user-type'">Zmien</a>&ndash;&gt;-->
+
+<!--<form action="#" th:action="@{/full-search}" th:object="${cosmetic}" method="post">-->
+<!--    <label>-->
+<!--        Nazwa:-->
+<!--        <select th:field="*{name}">-->
+<!--            <option th:value="${cosmetic.name}" th:each="cosmetic:${cosmetics}" th:text="${cosmetic.name}"></option>-->
+<!--        </select>-->
+<!--    </label>-->
+<!--    <input type="submit" value="Wybierz">-->
+
+<form th:action="@{/search-for-user}">
+
+    Marka: <input th:name="brandName" th:value="${selectedBrand}">
+    <a th:href="'/search-for-user'">Zmien</a>
+    <br/>
+    Kategoria: <input th:name="typeName" th:value="${selectedType}">
+    <a th:href="@{/search-for-user(brandName=${selectedBrand})}">Zmien</a>
+    <br/>
+
+
+
+    <label>
+        Nazwa kosmetyku:
+        <select th:name="cosmeticName">
+            <option th:value="${cosmetic.name}" th:each="cosmetic:${cosmetics}" th:text="${cosmetic.name}"></option>
+        </select>
+    </label>
+    <input type="submit" value="Wybierz">
+</form>
+
+</form>
+</body>
+</html>

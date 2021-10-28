@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShoppingListCosmeticRepository extends JpaRepository<ShoppingListCosmetic, Long> {
+
+    ShoppingListCosmetic findByCosmeticFromShopIdAndShoppingListId(Long cosmeticId, Long shoppingListId);
 }

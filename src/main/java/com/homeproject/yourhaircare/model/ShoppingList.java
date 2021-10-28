@@ -27,4 +27,6 @@ public class ShoppingList {
 
     @OneToMany(mappedBy = "shoppingList")
     private List<ShoppingListCosmetic> cosmeticsFromShop;
+
+
 }

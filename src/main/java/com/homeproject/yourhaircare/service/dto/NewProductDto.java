@@ -1,6 +1,5 @@
 package com.homeproject.yourhaircare.service.dto;
 
-import com.homeproject.yourhaircare.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +22,7 @@ public class NewProductDto {
     private Boolean silicon;
     private Boolean preservative;
     private String additionalInfo;
+    private Boolean addedToDB;
     private OffsetDateTime addedAt;
     private OffsetDateTime updatedAt;
 }

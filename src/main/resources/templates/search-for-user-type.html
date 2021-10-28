@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwarka</title>
+
+    <div th:replace="fragments/layout :: core"></div>
+
+</head>
+<body>
+
+<div th:replace="fragments/layout :: heading"></div>
+
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+
+                    <h1>Witaj <span th:text="${email}"></span></h1>
+
+
+                    <!--<form th:action="@{/search-for-user(brandName=${selectedBrand})}">-->
+                    <!--    <form th:action="@{/search-for-user(brandName=Nivea)}">-->
+                    <form th:action="@{/search-for-user}">
+
+                        <!--    Marka: <span th:name="brandName" th:text="${selectedBrand}"></span>-->
+                        Marka: <span th:text="${selectedBrand}"></span>
+
+                        <label>
+                            <input th:name="brandName" th:value="${selectedBrand}" hidden>
+                        </label>
+
+
+                        <a th:href="'/search-for-user'">Zmien</a>
+                        <br/>
+                        <label>
+                            Kategoria:
+                            <select th:name="typeName">
+                                <option th:value="${type.name}" th:each="type:${types}" th:text="${type.name}"></option>
+                            </select>
+                        </label>
+                        <!--    <input type="hidden" name="brandName" th:value="${selectedBrand}>-->
+
+                        <input type="submit" value="Wybierz">
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-lg-5 my-auto">
+                <div class="device-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div th:replace="fragments/layout :: footer"></div>
+
+</body>
+</html>

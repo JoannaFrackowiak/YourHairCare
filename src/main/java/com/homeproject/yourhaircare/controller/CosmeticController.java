@@ -19,8 +19,9 @@ public class CosmeticController {
     private CosmeticService cosmeticService;
 
     @GetMapping
-    public List<CosmeticDto> getAllCosmetics(@RequestParam(required = false) String name) {
-        return cosmeticService.getAllCosmetics();
+    public List<CosmeticDto> getAllCosmetics(@RequestParam(required = false) Long brandId,
+                                             @RequestParam(required = false) Long typeId) {
+        return cosmeticService.getAllCosmetics(brandId, typeId);
     }
 
     @GetMapping("/{id}")

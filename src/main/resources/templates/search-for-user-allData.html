@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwarka</title>
+</head>
+<body>
+<h1>Logged as: <span th:text="${email}"></span></h1>
+<h1><span th:text="${cosmeticData.name}"></span></h1>
+
+Marka: <span th:text="${cosmeticData.brandName}"></span>
+<br/>
+Rodzaj: <span th:text="${cosmeticData.typeName}"></span>
+<br/>
+Cecha: <span th:text="${cosmeticData.featureName}"></span>
+<br/>
+Konserwanty: <span th:text="${cosmeticData.preservative}"></span>
+<br/>
+Silikony: <span th:text="${cosmeticData.siliconsNamesInCosmetic}"></span>
+<!--<span th:each="silicon:${cosmeticData.siliconsNamesInCosmetic}" th:text="${silicon}"></span>-->
+
+<!--NOWE WYSZUKIWANIE-->
+<!--DODAJ TEN KOSMETYK DO LISTY SWOICH KOSMETYKÓW-->
+<!--DODAJ TEN KOSMETYK DO SWOJEJ LISTY ZAKUPÓW-->
+
+</body>
+</html>

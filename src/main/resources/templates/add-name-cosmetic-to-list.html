@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj swój kosmetyk</title>
+</head>
+<body>
+<form th:action="@{/add-user-cosmetic}">
+    Marka: <input th:name="brandName" th:value="${selectedBrand}">
+    <br/>
+    Kategoria: <input th:name="typeName" th:value="${selectedType}">
+    <a th:href="'/add-user-cosmetic'">Zmien</a>
+    <br/>
+    <label>
+        Nazwa kosmetyku:
+        <select th:name="cosmeticName">
+            <option th:value="${cosmetic.name}" th:each="cosmetic:${cosmetics}" th:text="${cosmetic.name}"></option>
+        </select>
+    </label>
+    <br/>
+    <input type="submit" th:name="action" value="Dodaj do listy swoich kosmetyków">
+    <br/>
+    <input type="submit" th:name="action" value="Dodaj do listy zakupów">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Informacja</title>
+</head>
+<body>
+Ten kosmetyk znajduje się już na Twojej liście.
+Chcesz dodać inny kosmetyk?
+<br/>
+
+<form th:action="@{/add-user-cosmetic}">
+    <input type="submit" value="Tak">
+</form>
+
+<!--<span th:if="${shoppingList} == true">-->
+<!--<form th:action="@{/shopping-list}">-->
+<!--    <input type="submit" value="Nie">-->
+<!--</form>-->
+<!--</span>-->
+<!--<span th:unless="${shoppingList} == true">-->
+<!--<form th:action="@{/my-cosmetics}">-->
+<!--    <input type="submit" value="Nie">-->
+<!--</form>-->
+<!--</span>-->
+
+<span th:switch="${shoppingList}">
+    <span th:case="true">
+        <form th:action="@{/shopping-list}">
+            <input type="submit" value="Nie">
+        </form>
+    </span>
+    <span th:case="*">
+        <form th:action="@{/my-cosmetics}">
+            <input type="submit" value="Nie">
+        </form>
+    </span>
+</span>
+
+
+</body>
+</html>

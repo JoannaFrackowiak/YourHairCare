@@ -5,18 +5,25 @@
     <title>Zarejestruj się</title>
 </head>
 <body>
+<!--<form action="#" th:action="@{/}" th:object="${userForm}" method="post">-->
 <form action="#" th:action="@{/register-user}" th:object="${userForm}" method="post">
-    <label>
-        Imię:
+
+    <div class="form-user">
+        <label>Imię:</label>
         <input type="text" th:field="*{name}">
-    </label>
+        <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <!--        th:errors="*{name}-->
+
+    </div>
     <label>
         Email:
-        <input type="text" th:field="*{email}">
+        <input type="email" th:field="*{email}">
     </label>
     <label>
         Password:
-        <input type="text" th:field="*{password}">
+        <input type="password" th:field="*{password}">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
     </label>
     <label>
         <input type="submit" value="Zarejestruj">
